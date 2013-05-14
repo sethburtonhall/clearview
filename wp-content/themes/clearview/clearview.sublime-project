@@ -1,0 +1,10 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/M8M/Dropbox/webdesign/localroot_db/htdocs/clearview/wp-content/themes/clearview",
+      "file_exclude_patterns":["favicon.png", "screenshot.png", "clearview.sublime-workspace", "README.md"],
+      "folder_exclude_patterns":["images", "fonts", "languages"]
+		}
+	]
+}

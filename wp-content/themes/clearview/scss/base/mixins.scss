@@ -1,0 +1,20 @@
+/*
+******************************
+* Media Queries
+******************************
+*/
+
+@mixin breakpoint($point) {
+  @if $point == desk {
+    @media (max-width: 1280px) { @content; }
+  }
+  @else if $point == tablet-landscape {
+    @media (max-width: 1024px) { @content; }
+  }
+  @else if $point == tablet-portrait {
+    @media (max-width: 767px) { @content; }
+  }
+  @else if $point == mobile {
+    @media (max-width: 480px)  { @content; }
+  }
+}

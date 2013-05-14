@@ -1,0 +1,19 @@
+.hero-wrapper {
+  background: $brand-gray;
+  width: 100%;
+}
+
+.hero-overlay {
+  background: rgba(white, .78);
+  width: 300px;
+  height: 300px;
+  padding: 30px;
+  color: $brand-blue;
+  h3 {
+    color: $brand-blue;
+  }
+}
+
+.hero-image {
+  border-top: 10px solid $brand-blue;
+}
