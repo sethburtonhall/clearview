@@ -20,6 +20,91 @@ function required_starter_themesetup() {
 }
 add_action( 'after_setup_theme', 'required_starter_themesetup' );
 
+// Sidebars & Widgetizes Areas
+
+//Remove Footer Widgets Areas
+function clearview_unregister_sidebars() {
+	unregister_sidebar( 'sidebar-footer-1' );
+	unregister_sidebar( 'sidebar-footer-2' );
+	unregister_sidebar( 'sidebar-footer-3' );
+}
+add_action( 'widgets_init', 'clearview_unregister_sidebars', 11 );
+
+// Sidebars & Widgetizes Areas
+
+//Add Home Page Widget Areas
+
+register_sidebar( array(
+	'name' => __( 'Main Sidebar', 'requiredfoundation' ),
+	'id' => 'sidebar-main',
+	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+	'after_widget' => "</aside>",
+	'before_title' => '<h4 class="widget-title">',
+	'after_title' => '</h4>',
+) );
+
+function clearview_register_sidebars() {
+register_sidebar(array(
+	'id' => 'news-feed',
+	'name' => __('News Feed', 'requiredstarter'),
+	'description' => __('This displays the two most recent News Posts in the home page widget area. Editing these settings may break your website layout. PLEASE PROCEED WITH CAUTION.', 'requiredstarter'),
+	'before_widget' => '<div id="news-feed" class="news-feed">',
+	'after_widget' => '</div>',
+	'before_title' => '<h3 class="widgettitle">',
+	'after_title' => '</h3>',
+));
+
+register_sidebar(array(
+	'id' => 'our-story',
+	'name' => __('Our Story', 'requiredstarter'),
+	'description' => __('This displays an excerpt from the "Overview Page" in the home page widget area.', 'requiredstarter'),
+	'before_widget' => '<div class="our-story">',
+	'after_widget' => '</div>',
+	'before_title' => '<h3 class="widgettitle">',
+	'after_title' => '</h3>',
+));
+
+register_sidebar(array(
+	'id' => 'recent-posts',
+	'name' => __('Most Recent Blog Post', 'requiredstarter'),
+	'description' => __('This displays your most recent blog posts in the home page widget area. Editing these settings may break your website layout. PLEASE PROCEED WITH CAUTION.', 'requiredstarter'),
+	'before_widget' => '<div class="recent-posts">',
+	'after_widget' => '</div>',
+	'before_title' => '<h3 class="widgettitle">',
+	'after_title' => '</h3>',
+));
+
+} // don't remove this bracket!
+
+add_action( 'widgets_init', 'clearview_register_sidebars', 11 );
+
+
+
+// Build Breadcrumbs
+function breadcrumbs() {
+	if (!is_home()) {
+		echo '<li><a href="';
+		echo get_option('home');
+		echo '">';
+		echo 'Home';
+		echo "</a></li>";
+		if (is_category() || is_single()) {
+			the_category(', ','&title_li=');
+			if (is_single()) {
+				echo " > ";
+				the_title();
+			}
+		} elseif (is_page()) {
+			echo '<li><a href="';
+			echo get_option($page_id);
+			echo '">';
+			the_title();
+			echo "</a></li>";
+}}}
+
+add_action('thesis_hook_before_content','show_crumbs');
+
+
 
 /**
  * With the following function you can disable theme features
@@ -83,7 +168,7 @@ function required_starter_scripts() {
 	 */
 	wp_enqueue_script(
 		'scripts-js',
-		get_stylesheet_directory_uri() . '/javascripts/scripts.js',
+		get_stylesheet_directory_uri() . '/javascripts/scripts-ck.js',
 		array( 'theme-js' ),
 		required_get_theme_version( false ),
 		true

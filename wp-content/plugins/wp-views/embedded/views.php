@@ -18,10 +18,14 @@ if(defined('WPV_VERSION')) {
 
 // THEME VERSION
 
-define('WPV_VERSION', '1.1.4.1');
+define('WPV_VERSION', '1.2.2');
 define('WPV_PATH', dirname(__FILE__));
 define('WPV_PATH_EMBEDDED', dirname(__FILE__));
 define('WPV_FOLDER', basename(WPV_PATH));
+
+// For module manager views support
+define('_VIEWS_MODULE_MANAGER_KEY_','views');
+define('_VIEW_TEMPLATES_MODULE_MANAGER_KEY_','view-templates');
 
 if(strpos(str_replace('\\', '/', WPV_PATH_EMBEDDED), str_replace('\\', '/', WP_PLUGIN_DIR)) !== false){
 	define('WPV_URL', plugins_url('embedded-views' , dirname(__FILE__)));
@@ -35,7 +39,9 @@ if (!defined('EDITOR_ADDON_RELPATH')) {
     define('EDITOR_ADDON_RELPATH', WPV_URL . '/common/visual-editor');
 }
 
-require_once WPV_PATH_EMBEDDED . '/common/wplogger.php';
+if ( !function_exists( 'wplogger' ) ) {
+	require_once WPV_PATH_EMBEDDED . '/common/wplogger.php';
+}
 require_once WPV_PATH_EMBEDDED . '/common/wp-pointer.php';
 require WPV_PATH_EMBEDDED . '/inc/wpv-shortcodes.php';
 require WPV_PATH_EMBEDDED . '/inc/wpv-shortcodes-in-shortcodes.php';

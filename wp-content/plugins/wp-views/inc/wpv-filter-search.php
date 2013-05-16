@@ -126,9 +126,9 @@ if(is_admin()){
             
             case 'visitor':
                 if ($short) {
-					echo __('Show a <strong>search box</strong> for vistors', 'wpv-views');
+					echo __('Show a <strong>search box</strong> for visitors', 'wpv-views');
 				} else {
-					echo __('Show a <strong>search box</strong> for vistors.', 'wpv-views');
+					echo __('Show a <strong>search box</strong> for visitors.', 'wpv-views');
 				}
                 break;
             
@@ -245,7 +245,7 @@ if(is_admin()){
                 break;
             
             case 'visitor':
-                echo __('Show a <strong>search box</strong> for vistors.', 'wpv-views');
+                echo __('Show a <strong>search box</strong> for visitors.', 'wpv-views');
                 break;
             
             case 'manual':
@@ -385,7 +385,7 @@ function wpv_filter_search_js() {
 	?>
 	
     <script type="text/javascript">
-		var wpv_search_text = '<?php echo __('Search', 'wpv-views'); ?>';
+		var wpv_search_text = '<?php echo esc_js(__('Search', 'wpv-views')); ?>';
 	</script>
 	
 	<?php

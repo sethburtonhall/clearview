@@ -54,6 +54,9 @@ if(is_admin()){
 	if (isset($_POST['author_mode'])) {
 	    // coming from the add filter button
 	    $defaults = array('author_mode' => $_POST['author_mode']);
+	    if (isset($_POST['author_name'])) {
+		$defaults['author_name'] = $_POST['author_name'];
+	    }
 	    if (isset($_POST['author_id'])) {
 		$defaults['author_id'] = $_POST['author_id'];
 	    }
@@ -221,6 +224,7 @@ if(is_admin()){
 	$view_settings = isset($args['view_settings']) ? $args['view_settings'] : array();
 	
 	$defaults = array('author_mode' => 'current_user',
+			  'author_name' =>'',
 			  'author_id' => 0,
 			  'author_url' => 'author-filter',
 			  'author_url_type' => '',
@@ -247,17 +251,20 @@ if(is_admin()){
 		    <?php $checked = $view_settings['author_mode'] == 'this_user' ? 'checked="checked"' : ''; ?>
 		    <label><input type="radio" name="<?php echo $radio_name; ?>" value="this_user" <?php echo $checked; ?> />&nbsp;<?php _e('Post author is ', 'wpv-views'); ?></label>
 		    
-		    <?php $select_id = $edit ? 'wpv_author' : 'wpv_author_add' ?>
-		    <?php $author_select_name = $edit ? '_wpv_settings[author_id]' : 'wpv_author_id_add' ?>
-		    <select id="<?php echo $select_id; ?>" name="<?php echo $author_select_name; ?>">
-		    <?php
-			$users = get_users();
-			foreach ($users as $user) {
-			    $selected = $view_settings['author_id'] == $user->ID ? ' selected="selected"' : '';
-			    echo '<option value="' . $user->ID . '"' . $selected . '>' . $user->display_name . '</option>';
-			}          
-		    ?>
-		    </select>
+		    <?php $author_input_id = $edit ? 'wpv_author' : 'wpv_author_add'; ?>
+		    <?php $author_input_name = $edit ? '_wpv_settings[author_id]' : 'wpv_author_id_add' ?>
+		    <?php $author_input_name_id = $edit ? 'wpv_author_name' : 'wpv_author_name_add'; ?>
+		    <?php $author_input_name_name = $edit ? '_wpv_settings[author_name]' : 'wpv_author_name_add' ?>
+		    
+		    <?php $author_display_name = $view_settings['author_name'];
+		    if ( 0 != $view_settings['author_id'] && '' == $author_display_name) {
+			$user_info = get_userdata($view_settings['author_id']);
+			$author_display_name = $user_info->display_name;
+		    } ?>
+		    
+		    <input id="<?php echo $author_input_name_id; ?>" class="author_suggest" type='text' name="<?php echo $author_input_name_name; ?>" value="<?php echo $author_display_name; ?>" size="15" />
+		    <input id="<?php echo $author_input_id; ?>" class="author_suggest_id" type='hidden' name="<?php echo $author_input_name; ?>" value="<?php echo $view_settings['author_id']; ?>" size="10" />
+
 		    <img id="wpv_update_author" src="<?php echo WPV_URL; ?>/res/img/ajax-loader.gif" width="16" height="16" style="display:none" alt="loading" />
 		    
 		</li>
@@ -328,6 +335,20 @@ if(is_admin()){
 		}
 		
 		return $summary;
+	}
+	
+	add_action('wp_ajax_wpv_suggest_author', 'wpv_suggest_author');
+	add_action('wp_ajax_nopriv_wpv_suggest_author', 'wpv_suggest_author');
+
+	function wpv_suggest_author() {
+		global $wpdb;
+		$user = esc_sql(like_escape($_REQUEST['q']));
+		$sql="SELECT DISTINCT ID, display_name FROM {$wpdb->users} INNER JOIN {$wpdb->usermeta} WHERE display_name LIKE '%$user%' ORDER BY display_name LIMIT 0, 20";
+			$results=$wpdb->get_results($sql);
+		foreach ($results as $row) {
+			echo $row->display_name . ' # userID: ' . $row->ID . "\n";
+		}
+		die();
 	}
     
 }

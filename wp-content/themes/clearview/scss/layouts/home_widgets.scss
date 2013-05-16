@@ -1,0 +1,38 @@
+.widgettitle {
+  position: relative;
+  background: $brand-brown;
+  padding: 10px 10px 10px 20px;
+  font-size: 16px;
+  color: $white;
+  font-weight: bold;
+  text-transform: uppercase;
+  &:after {
+    @include triangle-white;
+    top: 32%;
+    right: 30px;
+  }
+}
+.home-widget-wrapper {
+  margin-bottom: 50px;
+}
+
+.home-widgets.columns {
+  padding: 0 2px;
+}
+
+.home-widgets {
+  li {
+    list-style: none;
+  }
+  p {
+    font-size: 13px;
+    padding: 0 40px 0 20px;
+    line-height: 1.3em;
+    a {
+      color: $brand-darkerGray;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-bottom: 1px solid darken($brand-gray, 10);
+    }
+  }
+}

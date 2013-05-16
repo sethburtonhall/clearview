@@ -24,6 +24,10 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_stylesheet_directory_uri(); ?>/images/devices/apple-touch-icon-iphone.png" />
 	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_stylesheet_directory_uri(); ?>/images/devices/apple-touch-icon-ipad.png" />
 	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_stylesheet_directory_uri(); ?>/images/devices/apple-touch-icon-ipad.png" />
+
+	<script type="text/javascript" src="//use.typekit.net/mfa1dmk.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	
 	<!-- IE Fix for HTML5 Tags -->
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -44,7 +48,7 @@
 		<div class="row">
 			<header class="twelve columns required-header" role="banner">
 				<div class="client-center">
-					<a class="large button" href="#">Client Center</a>
+					<a class="large button" href="client-center">Client Center</a>
 				</div>
 				<div class="row">
 					<hgroup class="four columns">
@@ -64,7 +68,7 @@
 					 *
 					 * Used with the header image stuff.
 					 */
-					get_template_part( 'custom-header' );
+					// get_template_part( 'custom-header' );
 				?>
 			</header>
 		</div><!-- // header.php -->

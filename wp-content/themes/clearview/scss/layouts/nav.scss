@@ -1,0 +1,78 @@
+.top-bar {
+  margin: 93px 0 20px 0;
+  background: transparent;
+  @include breakpoint(portrait) {
+     margin-top: 0;
+  }
+  @include breakpoint(portrait) {
+     background: $brand-blue;
+  }
+}
+
+.top-bar ul>li.divider {
+  background: $brand-brown;
+  width: 1px;
+  height: 8px;
+  margin: 19px 7px;
+  &:first-child {
+    display: none;
+  }
+  @include breakpoint(portrait) {
+    display: none;
+  }
+}
+
+.top-bar ul>li a:not(.button) {
+  color: $brand-blue;
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 15px;
+  @include breakpoint(portrait) {
+     color: white;
+  }
+}
+
+.top-bar ul>li:not(.name):hover a, .top-bar ul>li:not(.name).active a, .top-bar ul>li:not(.name):focus a {
+  color: $brand-blue;
+  @include breakpoint(portrait) {
+     color: white;
+  }
+}
+
+/*hover on nav item with dropdown*/
+.top-bar ul>li.has-dropdown:not(.name):hover a {
+  margin-bottom: 20px;
+  @include breakpoint(portrait) {
+     margin-bottom: 0;
+  }
+}
+
+.top-bar ul>li.has-dropdown a:after {
+  display: none;
+}
+
+.top-bar ul>li:not(.name):not(.toggle-topbar):hover, .top-bar ul>li:not(.name).active, .top-bar ul>li:not(.name):focus {
+  background: $brand-gray;
+  @include breakpoint(portrait) {
+     background: darken($brand-blue, 5);
+  }
+}
+
+.top-bar ul>li.has-dropdown .dropdown {
+  background: rgba($brand-blue, .7);
+  li {
+    background: rgba($brand-blue, .7);
+    a:hover {
+      background: darken($brand-blue, 5);
+    }
+  }
+}
+
+/*caret disapear fix, but this keeps it visible on subnav*/
+/*.top-bar.expanded ul li.toggle-topbar a {
+  z-index: 9999;
+}*/

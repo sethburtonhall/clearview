@@ -10,6 +10,7 @@
     text-transform: uppercase;
     border: 0px;
     box-shadow: 0px 0px 0px;
+    z-index: 9999;
   }
 }
 
@@ -22,69 +23,4 @@
   @include breakpoint(mobile) {
      margin-top: 50px;
   }
-}
-
-/*
-******************************
-* MAIN NAV
-******************************
-*/
-
-.top-bar {
-  margin: 93px 0 20px 0;
-  background: transparent;
-  @include breakpoint(tablet-portrait) {
-     margin-top: 0;
-  }
-  @include breakpoint(tablet-portrait) {
-     background: $brand-blue;
-  }
-}
-
-.top-bar ul>li.divider {
-  background: $brand-brown;
-  width: 1px;
-  height: 8px;
-  margin: 19px 7px;
-}
-
-.top-bar ul>li a:not(.button) {
-  color: $brand-blue;
-  display: block;
-  font-size: 13px;
-  font-weight: bold;
-  text-transform: uppercase;
-  height: 45px;
-  line-height: 45px;
-  padding: 0 15px;
-  @include breakpoint(tablet-portrait) {
-     color: white;
-  }
-}
-
-.top-bar ul>li:not(.name):hover a, .top-bar ul>li:not(.name).active a, .top-bar ul>li:not(.name):focus a {
-  color: $brand-blue;
-  @include breakpoint(tablet-portrait) {
-     color: white;
-  }
-}
-
-/*hover on nav item with dropdown*/
-.top-bar ul>li.has-dropdown:not(.name):hover a {
-  @include breakpoint(tablet-portrait) {
-     margin-bottom: 0;
-  }
-  margin-bottom: 20px;
-}
-
-.top-bar ul>li.has-dropdown a:after {
-  display: none;
-}
-
-.top-bar ul>li:not(.name):not(.toggle-topbar):hover, .top-bar ul>li:not(.name).active, .top-bar ul>li:not(.name):focus {
-  background: $brand-gray;
-  @include breakpoint(tablet-portrait) {
-     background: darken($brand-blue, 5);
-  }
-
 }

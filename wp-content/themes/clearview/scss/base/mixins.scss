@@ -8,13 +8,59 @@
   @if $point == desk {
     @media (max-width: 1280px) { @content; }
   }
-  @else if $point == tablet-landscape {
+  @else if $point == landscape {
     @media (max-width: 1024px) { @content; }
   }
-  @else if $point == tablet-portrait {
+  @else if $point == 768 {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $point == portrait {
     @media (max-width: 767px) { @content; }
   }
   @else if $point == mobile {
     @media (max-width: 480px)  { @content; }
   }
+}
+
+/*
+******************************
+* Triangles
+******************************
+*/
+
+@mixin triangle-white {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 8px solid $white;
+  padding: 0;
+  position: absolute;
+  margin-top: -4px;
+}
+
+@mixin triangle-blue {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 8px solid $brand-blue;
+  padding: 0;
+  position: absolute;
+  margin-top: -4px;
+}
+
+/*
+******************************
+* Font Family
+******************************
+*/
+
+@mixin font-family {
+  font-family: 'proxima-nova' !important;
+  font-weight: 400;
 }
