@@ -2,12 +2,10 @@
   background: $brand-brown;
   height: 10px;
   .button {
+    @include button-blue;
     position: absolute;
     top: 0;
     right: 15px;
-    background: $brand-blue;
-    font-size: 12px;
-    text-transform: uppercase;
     border: 0px;
     box-shadow: 0px 0px 0px;
     z-index: 9999;

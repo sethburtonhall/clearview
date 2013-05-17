@@ -1,0 +1,50 @@
+/*
+******************************
+* Contact Us
+******************************
+*/
+
+/*aside*/
+.map {
+  margin-bottom: 30px;
+}
+
+.follow-us {
+  h3 {
+    color: $white;
+    border-bottom: 1px solid $white;
+    margin-bottom: 30px;
+  }
+  .button {
+    @include button-blue;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  @include breakpoint(portrait) {
+    .button {
+      float: left;
+      width: 100%;
+      margin: 0 20px 20px 0;
+      padding: 15px 20px 16px;
+    }
+    .linkedin-logo {
+      width: 100%;
+    }
+  }
+}
+
+/*form*/
+.textarea {
+  font-size: 16px;
+}
+
+.button {
+  @include button-blue;
+  border: 0;
+  -webkit-box-shadow: 0 0 0;
+    -moz-box-shadow: 0 0 0;
+      box-shadow: 0 0 0;
+  @include font-family;
+  text-transform: uppercase;
+  font-size: 12px !important;
+}

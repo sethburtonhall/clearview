@@ -19,18 +19,33 @@ ul.breadcrumbs {
   }
 }
 
+
+/*page aside*/
+.parent-pageid-41 .featured-image {
+  width: 100%;
+  height: 352px;
+  overflow:hidden; /* this is important */
+  @include breakpoint(portrait) {
+    float: left;
+    width: 50%;
+    height: auto;
+  }
+  img {
+    margin: -21px 0 0 0;
+    width:100%;
+  }
+}
+
 .aside-wrapper{
   padding: 0;
   background: rgba($brand-blue, .7) url('/wp-content/themes/clearview/images/aside-bg.png') repeat;
   min-height: 99%;
-  position: absolute;
   @include breakpoint(portrait) {
     position: relative;
   }
   .side-nav-wrapper {
     padding: 35px;
       @include breakpoint(portrait) {
-        float: left;
         padding: 30px;
       }
     }
@@ -47,21 +62,15 @@ ul.breadcrumbs {
   }
 }
 
-.parent-pageid-41 .featured-image {
-  width: 100%;
-  height: 352px;
-  overflow:hidden; /* this is important */
+/*conditionally loaded on team member pages*/
+.team-side-nav-wrapper {
   @include breakpoint(portrait) {
     float: left;
-    width: 50%;
-    height: auto;
-  }
-  img {
-    margin: -21px 0 0 0;
-    width:100%;
+    padding-left: 30px;
   }
 }
 
+/*page content*/
 .page-content {
   padding: 0;
 }
