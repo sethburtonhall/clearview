@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Page-Home
+ * Template Name: Home Page
  * Description: A Page Template without a sidebar
  *
  * @package required+ Foundation

@@ -1,0 +1,35 @@
+#post-41 .entry-content {
+  padding-bottom: 10px;
+}
+
+.blue-text {
+color: $brand-blue;
+}
+
+.darkGray-text {
+  color: $brand-darkGray;
+}
+
+.team-members {
+  margin-bottom: 50px;
+  a {
+    color: $brand-darkGray !important;
+  }
+}
+
+.read-more {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.cfp-img.three.columns {
+  padding-left: 0px;
+  @include breakpoint(mobile) {
+    width: 96px !important;
+    margin: 0 auto 20px !important;
+  }
+}
+
+.cfp-disclosure {
+  padding: 0px;
+}

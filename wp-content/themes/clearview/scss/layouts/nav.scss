@@ -45,7 +45,6 @@
 
 /*hover on nav item with dropdown*/
 .top-bar ul>li.has-dropdown:not(.name):hover a {
-  margin-bottom: 20px;
   @include breakpoint(portrait) {
      margin-bottom: 0;
   }
@@ -55,23 +54,68 @@
   display: none;
 }
 
-.top-bar ul>li:not(.name):not(.toggle-topbar):hover, .top-bar ul>li:not(.name).active, .top-bar ul>li:not(.name):focus {
+.top-bar ul:not(.dropdown)>li.has-dropdown:not(.name):not(.toggle-topbar):hover {
   background: $brand-gray;
+  padding-bottom: 20px;
   @include breakpoint(portrait) {
      background: darken($brand-blue, 5);
   }
 }
 
+.top-bar ul>li:not(.name):hover,
+.top-bar ul>li:not(.name).active,
+.top-bar ul>li:not(.name):focus {
+  background: $brand-gray;
+}
+
+
+/*top level subnav dropdown*/
 .top-bar ul>li.has-dropdown .dropdown {
-  background: rgba($brand-blue, .7);
+  background: transparent;
+  margin-top: 20px;
   li {
     background: rgba($brand-blue, .7);
-    a:hover {
-      background: darken($brand-blue, 5);
+    padding-bottom: 0px;
+    &:nth-child(2) {
+      padding-top: 15px;
+    }
+    &:last-child {
+      padding-bottom: 0px;
+    }
+    .has-dropdown {
+      &:hover {
+        padding-bottom: 0px;
+      }
+    }
+    a {
+      padding: 10px;
+      font-weight: 600;
+      &:hover {
+        background: lighten($brand-blue, 5);
+      }
     }
   }
 }
 
+.top-bar ul>li.has-dropdown .dropdown li.active a {
+background: transparent;
+&:hover {
+  background: lighten($brand-blue, 5);
+}
+}
+
+.top-bar ul>li.has-dropdown .dropdown li.active>a {
+  background: lighten($brand-blue, 5);
+}
+
+/*2nd level subnav dropdown*/
+.top-bar ul>li.has-dropdown ul>li.has-dropdown:hover>.dropdown {
+  margin-top: 0;
+  padding-top: 0;
+  li:nth-child(2) {
+    padding-top: 0;
+  }
+}
 /*caret disapear fix, but this keeps it visible on subnav*/
 /*.top-bar.expanded ul li.toggle-topbar a {
   z-index: 9999;

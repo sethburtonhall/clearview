@@ -78,34 +78,6 @@ register_sidebar(array(
 
 add_action( 'widgets_init', 'clearview_register_sidebars', 11 );
 
-
-
-// Build Breadcrumbs
-function breadcrumbs() {
-	if (!is_home()) {
-		echo '<li><a href="';
-		echo get_option('home');
-		echo '">';
-		echo 'Home';
-		echo "</a></li>";
-		if (is_category() || is_single()) {
-			the_category(', ','&title_li=');
-			if (is_single()) {
-				echo " > ";
-				the_title();
-			}
-		} elseif (is_page()) {
-			echo '<li><a href="';
-			echo get_option($page_id);
-			echo '">';
-			the_title();
-			echo "</a></li>";
-}}}
-
-add_action('thesis_hook_before_content','show_crumbs');
-
-
-
 /**
  * With the following function you can disable theme features
  * used by the parent theme without breaking anything. Read the

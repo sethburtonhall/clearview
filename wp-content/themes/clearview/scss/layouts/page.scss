@@ -1,24 +1,28 @@
-ul.breadcrumbs {
+.page-wrap {
+  background: rgba($brand-blue, .7) url('/wp-content/themes/clearview/images/aside-bg.png') repeat;
+  float: left;
+  min-height: 100%;
+  width: 100%;
+}
+
+/*Yoast SEO Breadcrumbs*/
+#breadcrumbs {
   background: rgba($brand-blue, .7);
   border: 0;
   border-radius: 0;
   padding: 15px 0 15px 80px;
-  li {
-    a {
-      color: $white;
-      font-size: 16px;
-      text-transform: capitalize;
-    }
-    &:before {
-      content: " > ";
-      color: $white;
-    }
-    &:first-child:before {
-      content: "  ";
-    }
+  font-size: 16px;
+  text-transform: capitalize;
+  span {
+    color: $white;
+  }
+  a {
+    color: $white;
+  }
+  @include breakpoint(mobile) {
+    padding: 15px 0 15px 15px;
   }
 }
-
 
 /*page aside*/
 .parent-pageid-41 .featured-image {
@@ -36,13 +40,30 @@ ul.breadcrumbs {
   }
 }
 
+/*featured image*/
+.featured-image {
+  position: relative;
+}
+
+.featured-image:before, .featured-image:after {
+  content: "";
+  position: absolute;
+  background: $brand-gray;  /* Match the background */
+  top: -10px;
+  bottom: 0;
+  width: 3000%;
+  left: -1000px;
+  z-index: -1;
+}
+
 .aside-wrapper{
   padding: 0;
-  background: rgba($brand-blue, .7) url('/wp-content/themes/clearview/images/aside-bg.png') repeat;
-  min-height: 99%;
+  height: 100%;
   @include breakpoint(portrait) {
     position: relative;
+    padding-bottom: 0;
   }
+
   .side-nav-wrapper {
     padding: 35px;
       @include breakpoint(portrait) {
@@ -52,12 +73,16 @@ ul.breadcrumbs {
   ul.side-nav {
     padding: 0;
     li {
+      margin: 0;
       border-bottom: 1px solid $white;
       a {
-        padding: 0 0 10px 6px;
+        padding: 5px 0 5px 6px;
         color: $white;
         font-weight: 700;
       }
+    }
+    .current_page_item {
+      background: $brand-blue;
     }
   }
 }
@@ -73,6 +98,8 @@ ul.breadcrumbs {
 /*page content*/
 .page-content {
   padding: 0;
+  background: $white;
+  min-height: 470px;
 }
 
 .entry-content {
@@ -84,3 +111,11 @@ ul.breadcrumbs {
     padding: 0 20px;
   }
 }
+
+/*
+******************************
+* ARCHIVES
+******************************
+*/
+
+
