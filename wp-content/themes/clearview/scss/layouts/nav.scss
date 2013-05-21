@@ -1,10 +1,22 @@
+.nav-callout {
+  display: none;
+  color: $white;
+  @include font-family;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 3em;
+  padding-left: 15px;
+  @include breakpoint(portrait) {
+    display: block;
+  }
+}
+
 .top-bar {
-  margin: 93px 0 20px 0;
+  margin: 93px 0 20px 20px;
   background: transparent;
   @include breakpoint(portrait) {
-     margin-top: 0;
-  }
-  @include breakpoint(portrait) {
+     margin: 0 0 20px 0;
      background: $brand-blue;
   }
 }
@@ -30,7 +42,7 @@
   text-transform: uppercase;
   height: 45px;
   line-height: 45px;
-  padding: 0 15px;
+  padding: 0 10px;
   @include breakpoint(portrait) {
      color: white;
   }
@@ -116,7 +128,43 @@ background: transparent;
     padding-top: 0;
   }
 }
+
+/*Mobile Menu - .expanded*/
+.top-bar ul>li.toggle-topbar:hover {
+  background: transparent;
+}
+
 /*caret disapear fix, but this keeps it visible on subnav*/
-/*.top-bar.expanded ul li.toggle-topbar a {
+.top-bar ul>li.toggle-topbar {
   z-index: 9999;
-}*/
+
+}
+
+.top-bar.expanded ul>li:not(.name):not(.toggle-topbar):hover, .top-bar.expanded ul>li:not(.name):not(.toggle-topbar).active, .top-bar.expanded ul>li:not(.name):not(.toggle-topbar):focus {
+  background: darken($brand-blue, 5);
+  padding-bottom: 0;
+}
+
+.top-bar.expanded ul:not(.dropdown)>li.has-dropdown:not(.name):not(.toggle-topbar):hover {
+padding-bottom: 0px;
+}
+
+.top-bar.expanded ul>li.has-dropdown.moved>.dropdown li a:hover {
+  background: darken($brand-blue, 5);
+}
+
+.top-bar.expanded ul>li.has-dropdown .dropdown {
+  background: transparent;
+  margin-top: 0px;
+  li {
+    background: rgba($brand-blue, .7);
+    padding-bottom: 0px;
+    &:nth-child(2) {
+      padding-top: 0px;
+    }
+  }
+}
+
+.top-bar.expanded ul>li.has-dropdown .dropdown li.active>a {
+  background: darken($brand-blue, 5);
+}

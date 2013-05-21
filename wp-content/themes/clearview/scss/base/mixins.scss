@@ -11,14 +11,26 @@
   @else if $point == landscape {
     @media (max-width: 1024px) { @content; }
   }
+  @else if $point == 962 {
+    @media (max-width: 962px) { @content; }
+  }
   @else if $point == 768 {
     @media (max-width: 768px) { @content; }
   }
   @else if $point == portrait {
     @media (max-width: 767px) { @content; }
   }
+  @else if $point == 632 {
+    @media (max-width: 632px) { @content; }
+  }
+  @else if $point == 580 {
+    @media (max-width: 580px) { @content; }
+  }
   @else if $point == mobile {
     @media (max-width: 480px)  { @content; }
+  }
+  @else if $point == 386 {
+    @media (max-width: 386px)  { @content; }
   }
 }
 

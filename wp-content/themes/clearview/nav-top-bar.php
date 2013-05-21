@@ -13,6 +13,7 @@
             <!-- START: nav-top-bar.php -->
             <!-- <div class="contain-to-grid"> // enable to contain to grid -->
                 <nav class="top-bar">
+                    <p class="nav-callout">Menu</p>
                     <ul>
                         <li class="toggle-topbar"><a href="#"></a></li>
                     </ul>

@@ -48,7 +48,7 @@ get_header(); ?>
 				$the_query = new WP_Query( 'page_id=35' );
 				// The Loop
 				while ( $the_query->have_posts() ) : $the_query->the_post();
-				echo '<h3 class="widgettitle">Our Story</h3> <li>';
+				echo '<a href="overview"><h3 class="widgettitle">Our Story</h3></a> <li>';
 				the_excerpt();
 				echo '</li>';
 				endwhile;

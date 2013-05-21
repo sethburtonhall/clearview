@@ -57,29 +57,13 @@ get_header(); ?>
                         <!-- call child page content -->
                     <div class="entry-content">
 
-                        <!-- custom excerpt text and length -->
-                        <?php
-
-                        // replace default elipsis
-                        function new_excerpt_more( $more ) {
-                            return ' ... &nbsp;<a class="read-more" href="'. get_permalink( get_the_ID() ) . '">Read&nbsp;More</a>';
-                        }
-                        add_filter('excerpt_more', 'new_excerpt_more');
-
-                        // change excerpt length
-                        function custom_excerpt_length( $length ) {
-                            return 16;
-                        }
-                        add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
-                        ?> <!-- end custom excerpt text and length -->
-
                         <!-- child page loop -->
                         <?php
                             $mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'post_date', 'sort_order' => 'assc' ) );
 
                             foreach( $mypages as $page ) {
                                 $thumbnail = get_the_post_thumbnail($page->ID, 'medium');
-                                $content = substr( $page->post_content,0, 200) . '<a class="read-more" href="' . get_page_link( $page->ID ) . '">... Read more</a>';
+                                $content = substr( $page->post_content,0, 200) . '<a class="read-more" href="' . get_page_link( $page->ID ) . '"> ... <br>Read more</a>';
                                 $excerpt = $page->post_excerpt;
                                 if ( ! $content ) // Check for empty page
                                     continue;

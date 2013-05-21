@@ -50,8 +50,8 @@ register_sidebar(array(
 	'description' => __('This displays the two most recent News Posts in the home page widget area. Editing these settings may break your website layout. PLEASE PROCEED WITH CAUTION.', 'requiredstarter'),
 	'before_widget' => '<div id="news-feed" class="news-feed">',
 	'after_widget' => '</div>',
-	'before_title' => '<h3 class="widgettitle">',
-	'after_title' => '</h3>',
+	'before_title' => '<a href="category/news"><h3 class="widgettitle">',
+	'after_title' => '</h3></a>',
 ));
 
 register_sidebar(array(
@@ -70,8 +70,8 @@ register_sidebar(array(
 	'description' => __('This displays your most recent blog posts in the home page widget area. Editing these settings may break your website layout. PLEASE PROCEED WITH CAUTION.', 'requiredstarter'),
 	'before_widget' => '<div class="recent-posts">',
 	'after_widget' => '</div>',
-	'before_title' => '<h3 class="widgettitle">',
-	'after_title' => '</h3>',
+	'before_title' => '<a href="blog"><h3 class="widgettitle">',
+	'after_title' => '</h3></a>',
 ));
 
 } // don't remove this bracket!
